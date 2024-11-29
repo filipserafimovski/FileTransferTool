@@ -67,15 +67,12 @@ namespace FileTransferTool.Tests
         [Test]
         public void ComputeMD5Hash_DifferentInput_ReturnsDifferentHash()
         {
-            // Arrange
             byte[] data1 = Encoding.UTF8.GetBytes("Filip's File Transfer Tool");
             byte[] data2 = Encoding.UTF8.GetBytes("Filip's Tool for Transfering Files");
 
-            // Act
             string hash1 = HashComputingHelper.ComputeMD5Hash(data1);
             string hash2 = HashComputingHelper.ComputeMD5Hash(data2);
 
-            // Assert
             Assert.That(hash2, Is.Not.EqualTo(hash1));
         }
     }
