@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileTransferTool.App", "Fil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileTransferTool.TestFileGenerator", "TestFileGenerator\FileTransferTool.TestFileGenerator.csproj", "{945EFEA3-62D6-433C-AD1D-9956A4BA6005}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTransferTool.Tests", "FileTransferTool.Tests\FileTransferTool.Tests.csproj", "{40EB14F9-D396-4674-B8DA-2EFA175E89F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{945EFEA3-62D6-433C-AD1D-9956A4BA6005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{945EFEA3-62D6-433C-AD1D-9956A4BA6005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{945EFEA3-62D6-433C-AD1D-9956A4BA6005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40EB14F9-D396-4674-B8DA-2EFA175E89F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40EB14F9-D396-4674-B8DA-2EFA175E89F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40EB14F9-D396-4674-B8DA-2EFA175E89F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40EB14F9-D396-4674-B8DA-2EFA175E89F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

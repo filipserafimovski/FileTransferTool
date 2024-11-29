@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using FileTransferTool.App.Models;
 
 namespace FileTransferTool.Helpers
 {
@@ -97,14 +98,13 @@ namespace FileTransferTool.Helpers
 
         private static async Task VerifyFinalFileHash(string sourceFilePath, string destinationFilePath)
         {
-            string sourceHash = await HashComputingHelper.ComputeFileSHA256HashAsync(sourceFilePath);
-            string destinationHash = await HashComputingHelper.ComputeFileSHA256HashAsync(destinationFilePath);
+            ChecksumResult result = await HashComputingHelper.CompareChecksums(sourceFilePath, destinationFilePath);
 
             Console.WriteLine("\nFile Transfer Complete.");
-            Console.WriteLine($"Source File Checksum: {sourceHash}");
-            Console.WriteLine($"Destination File Checksum: {destinationHash}");
+            Console.WriteLine($"Source File Checksum: {result.SourceHash}");
+            Console.WriteLine($"Destination File Checksum: {result.DestinationHash}");
 
-            if (sourceHash == destinationHash)
+            if (result.IsMatch)
             {
                 Console.WriteLine("File transfer verified successfully.");
             }

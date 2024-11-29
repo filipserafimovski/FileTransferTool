@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using FileTransferTool.App.Models;
 
 namespace FileTransferTool.Helpers
 {
@@ -26,6 +27,15 @@ namespace FileTransferTool.Helpers
                 byte[] hashBytes = md5.ComputeHash(buffer);
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
+        }
+
+        public async static Task<ChecksumResult> CompareChecksums(string sourceFilePath, string destinationFilePath)
+        {
+            string sourceHash = await ComputeFileSHA256HashAsync(sourceFilePath);
+            string destinationHash = await ComputeFileSHA256HashAsync(destinationFilePath);
+            var isMatch = sourceHash == destinationHash;
+
+            return new ChecksumResult() { SourceHash = sourceHash, DestinationHash = destinationHash, IsMatch = isMatch };
         }
     }
 }

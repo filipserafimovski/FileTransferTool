@@ -25,6 +25,12 @@ namespace FileTransferTool.Helpers
             {
                 throw new DirectoryNotFoundException($"The destination directory does not exist: {destinationDirectory}");
             }
+
+            // Check to see if user provided directoryName instead of fileName for the destination
+            if (Directory.Exists(destinationFilePath))
+            {
+                throw new ArgumentException($"The destination path '{destinationFilePath}' is a directory. Please specify a file name.");
+            }
         }
     }
 }
