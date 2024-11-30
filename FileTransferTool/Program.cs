@@ -14,6 +14,10 @@ namespace FileTransferApp
             Console.WriteLine("Enter the destination file path (e.g., d:\\destination\\large_file_copy.bin):");
             string destinationFilePath = Console.ReadLine() ?? string.Empty;
 
+            Console.WriteLine("\r\n");
+            Console.WriteLine("Beginning file transfer...\r\n");
+            Console.WriteLine("Transferring 1MB block at a time:");
+
             try
             {
                 await FileTransferHelper.TransferFile(sourceFilePath, destinationFilePath);

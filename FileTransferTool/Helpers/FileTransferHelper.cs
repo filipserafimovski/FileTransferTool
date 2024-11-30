@@ -100,7 +100,7 @@ namespace FileTransferTool.Helpers
         {
             ChecksumResult result = await HashComputingHelper.CompareChecksums(sourceFilePath, destinationFilePath);
 
-            Console.WriteLine("\nFile Transfer Complete.");
+            Console.WriteLine("\nFile Transfer Complete.\r\n");
             Console.WriteLine($"Source File Checksum: {result.SourceHash}");
             Console.WriteLine($"Destination File Checksum: {result.DestinationHash}");
 
