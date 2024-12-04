@@ -34,7 +34,7 @@ namespace FileTransferTool.Tests
             string invalidDestinationPath = string.Empty;
 
             var ex = Assert.Throws<ArgumentException>(() => FilePathValidationHelper.ValidatePaths(sourcePath, invalidDestinationPath));
-            Assert.That(ex.Message, Is.EqualTo("Source and destination paths cannot be empty."));
+            Assert.That(ex.Message, Is.EqualTo("Destination path cannot be empty."));
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace FileTransferTool.Tests
             string invalidDestinationPath = @"C:\Users\Lenovo\Desktop\Destination\10MBTestFile.txt";
 
             var ex = Assert.Throws<ArgumentException>(() => FilePathValidationHelper.ValidatePaths(sourcePath, invalidDestinationPath));
-            Assert.That(ex.Message, Is.EqualTo("Source and destination paths cannot be empty."));
+            Assert.That(ex.Message, Is.EqualTo("Source path cannot be empty."));
         }
 
         [Test]

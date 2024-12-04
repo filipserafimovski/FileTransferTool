@@ -19,7 +19,7 @@ namespace FileTransferTool.Tests
             _sourceFilePath = @"C:\Users\Lenovo\Desktop\sourceTestFile.txt";
             _destinationFilePath = @"C:\Users\Lenovo\Desktop\Destination\destinationTestFile.txt";
 
-            GenerateTestFile.Generate10MBTextFileLetters(_sourceFilePath);
+            GenerateTestFile.Generate10MBTextFile(_sourceFilePath, "letters");
         }
 
         [TearDown]

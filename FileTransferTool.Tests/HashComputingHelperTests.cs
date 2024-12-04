@@ -30,8 +30,8 @@ namespace FileTransferTool.Tests
         [Test]
         public async Task CompareChecksums_ShouldReturnMatch_WhenFilesAreIdentical()
         {
-            GenerateTestFile.Generate10MBTextFileLetters(_filePath1);
-            GenerateTestFile.Generate10MBTextFileLetters(_filePath2);
+            GenerateTestFile.Generate10MBTextFile(_filePath1, "letters");
+            GenerateTestFile.Generate10MBTextFile(_filePath2, "letters");
 
             var result = await HashComputingHelper.CompareChecksums(_filePath1, _filePath2);
             Assert.IsTrue(result.IsMatch);
@@ -41,8 +41,8 @@ namespace FileTransferTool.Tests
         [Test]
         public async Task CompareChecksums_ShouldReturnNoMatch_WhenFilesAreDifferent()
         {
-            GenerateTestFile.Generate10MBTextFileLetters(_filePath1);
-            GenerateTestFile.Generate10MBTextFileNumbers(_filePath3);
+            GenerateTestFile.Generate10MBTextFile(_filePath1, "letters");
+            GenerateTestFile.Generate10MBTextFile(_filePath3, "digits");
 
             var result = await HashComputingHelper.CompareChecksums(_filePath1, _filePath3);
             Assert.IsFalse(result.IsMatch);

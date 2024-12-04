@@ -10,27 +10,41 @@ namespace FileTransferTool.Helpers
     {
         public static void ValidatePaths(string sourceFilePath, string destinationFilePath)
         {
-            if (string.IsNullOrWhiteSpace(sourceFilePath) || string.IsNullOrWhiteSpace(destinationFilePath))
+            ValidateSourceFilePath(sourceFilePath);
+            ValidateDestinationFilePath(destinationFilePath);
+        }
+
+        private static void ValidateSourceFilePath(string sourceFilePath)
+        {
+            if (string.IsNullOrWhiteSpace(sourceFilePath))
             {
-                throw new ArgumentException("Source and destination paths cannot be empty.");
+                throw new ArgumentException("Source path cannot be empty.");
             }
 
             if (!File.Exists(sourceFilePath))
             {
                 throw new FileNotFoundException($"The source file does not exist: {sourceFilePath}");
             }
+        }
+
+        private static void ValidateDestinationFilePath(string destinationFilePath)
+        {
+            if (string.IsNullOrWhiteSpace(destinationFilePath))
+            {
+                throw new ArgumentException("Destination path cannot be empty.");
+            }
 
             string destinationDirectory = Path.GetDirectoryName(destinationFilePath) ?? string.Empty;
-            if (!Directory.Exists(destinationDirectory) || string.IsNullOrEmpty(destinationDirectory))
+            if (string.IsNullOrEmpty(destinationDirectory) || !Directory.Exists(destinationDirectory))
             {
                 throw new DirectoryNotFoundException($"The destination directory does not exist: {destinationDirectory}");
             }
 
-            // Check to see if user provided directoryName instead of fileName for the destination
             if (Directory.Exists(destinationFilePath))
             {
                 throw new ArgumentException($"The destination path '{destinationFilePath}' is a directory. Please specify a file name.");
             }
         }
     }
+
 }
